@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Desordenada Estilizada [EJERCICIO 8]</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        li {
+            font-size: 18px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            position: relative;
+            padding-left: 35px;
+        }
+        
+        li:before {
+            content: "•";
+            position: absolute;
+            left: 15px;
+            color: #e74c3c;
+            font-size: 24px;
+        }
+        
+        li:hover {
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <h1>5 productos tecnológicos desarrollados recientemente en China!</h1>
+    
+    <ul>
+        <li>Cámara espía de largo alcance</li>
+        <li>Prototipo de teléfono con triple pliegue 'Phantom Ultimate 2'</li>
+        <li>Xiaomi 15 Ultra</li>
+        <li>Modelo de lenguaje DeepSeek-V3</li>
+        <li>Chip visual inspirado en el cerebro</li>
+    </ul>
+</body>
+</html>

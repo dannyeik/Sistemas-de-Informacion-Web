@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+  <!-- Define el tipo de documento como HTML5 -->
+<html lang="es">
+ <!-- html es el contenedor principal de todo el contenido HTML, "lang" indica que el idioma del contenido es español -->
+<head>
+  <!-- título, la codificación de caracteres y los estilos CSS -->
+  <meta charset="UTF-8">
+    <!-- codificación de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Configura la vista para que sea responsive (adaptable a dispositivos móviles) "width=device-width" hace que el ancho de la página sea igual al ancho del dispositivo.
+    "initial-scale=1.0" establece el nivel de zoom inicial -->
+  <title>Animación de cambio de color</title>
+   <!-- título de la página -->
+  <style>
+	  /* Definición de la animación */
+    @keyframes cambioColor {
+      0% { background-color: red; }
+      50% { background-color: yellow; }
+      100% { background-color: green; }
+    }
+
+     /* Aplicar la animación a un elemento */
+    .color-box {
+      width: 100px;
+      height: 100px;
+      animation: cambioColor 4s infinite;
+    }
+  </style>
+</head>
+<body> <!--contenido visible de la página-->
+  <div class="color-box"></div>
+  <!-- Crea un elemento <div> con la clase "color-box".Este elemento tendrá un tamaño de 100x100 píxeles y aplicará la animación "cambioColor" -->
+</body>
+</html>

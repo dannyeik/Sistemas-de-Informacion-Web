@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Moneda</title>
+    <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet">
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+</head>
+<body id="page-top">
+<div class="container mt-5">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-primary text-white">
+            <h6 class="m-0 font-weight-bold">Formulario de Moneda</h6>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/monedas}" th:object="${moneda}" method="post" class="user">
+                <input type="hidden" th:field="*{id}" />
+
+                <div class="form-group">
+                    <label>Denominación</label>
+                    <input type="text" th:field="*{denominacion}" class="form-control form-control-user"
+                           placeholder="Ej: Dólar, Guaraní, Euro" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Valor</label>
+                    <input type="text" th:field="*{valor}" class="form-control form-control-user"
+                           placeholder="Ej: 1.00, 7100, 0.89" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Orden</label>
+                    <input type="number" th:field="*{orden}" class="form-control form-control-user"
+                           placeholder="Ej: 1, 2, 3" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Guardar
+                </button>
+                <a th:href="@{/monedas}" class="btn btn-secondary btn-user btn-block">
+                    Cancelar
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/sb-admin-2.min.js}"></script>
+</body>
+</html>

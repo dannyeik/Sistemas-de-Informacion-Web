@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Bancos</title>
+    <link th:href="@{/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet">
+    <link th:href="@{/css/sb-admin-2.min.css}" rel="stylesheet">
+</head>
+<body id="page-top">
+<div class="container mt-5">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 bg-primary text-white">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold">Listado de Bancos</h6>
+                <a class="btn btn-light btn-sm" th:href="@{/bancos/nuevo}">
+                    <i class="fas fa-plus"></i> Nuevo Banco
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Teléfono</th>
+                            <th>Dirección</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="banco : ${bancos}">
+                            <td th:text="${banco.id}"></td>
+                            <td th:text="${banco.descripcion}"></td>
+                            <td th:text="${banco.telefono}"></td>
+                            <td th:text="${banco.direccion}"></td>
+                            <td>
+                                <a th:href="@{'/bancos/editar/' + ${banco.id}}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a th:href="@{'/bancos/eliminar/' + ${banco.id}}" class="btn btn-danger btn-sm"
+                                   onclick="return confirm('¿Estás seguro de eliminar este banco?')">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/sb-admin-2.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Formulario Cobro</title></head>
+<body>
+<h2 th:text="${cobro.id == null} ? 'Nuevo Cobro' : 'Editar Cobro'"></h2>
+<form th:action="@{/cobros/guardar}" th:object="${cobro}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>ID Venta:</label><input type="number" th:field="*{id_venta}" /><br/>
+    <label>ID Tipo Pago:</label><input type="number" th:field="*{id_tipo_pago}" /><br/>
+    <label>ID Banco:</label><input type="number" th:field="*{id_banco}" /><br/>
+    <label>Banco:</label><input type="text" th:field="*{banco}" /><br/>
+    <label>Nro Comprobante:</label><input type="text" th:field="*{nro_comprobante}" /><br/>
+    <label>Fecha Cobro Cheque:</label><input type="date" th:field="*{fecha_cobro_cheque}" /><br/>
+    <label>Monto:</label><input type="number" th:field="*{monto}" /><br/>
+    <label>TC:</label><input type="number" th:field="*{tc}" /><br/>
+    <label>Seleccionado:</label><input type="text" th:field="*{seleccionado}" /><br/>
+    <label>ID Apertura Cierre:</label><input type="number" th:field="*{id_apertura_cierre}" /><br/>
+    <label>Fecha Cheque:</label><input type="date" th:field="*{fecha_cheque}" /><br/>
+    <button type="submit">Guardar</button>
+</form>
+<a href="/cobros">Volver</a>
+</body>
+</html>

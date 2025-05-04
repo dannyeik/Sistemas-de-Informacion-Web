@@ -1,0 +1,23 @@
+<h1>Listado de Clientes</h1>
+<a th:href="@{/clientes/form}">Nuevo Cliente</a>
+<table>
+    <thead>
+    <tr>
+        <th>Razón Social</th><th>RUC</th><th>Email</th><th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cli : ${clientes}">
+        <td th:text="${cli.razonSocial}"></td>
+        <td th:text="${cli.ruc}"></td>
+        <td th:text="${cli.email}"></td>
+        <td>
+            <a th:href="@{/clientes/editar/{id}(id=${cli.id})}">Editar</a>
+            <form th:action="@{/clientes/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${cli.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar cliente?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

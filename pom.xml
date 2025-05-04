@@ -8,11 +8,11 @@
 		<version>3.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.duga</groupId>
+	<artifactId>administracion-duga-pizza</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Administración DuGa Pizza</name>
+	<description>Sistema Informático DuGa Pizza</description>
 	<url/>
 	<licenses>
 		<license/>

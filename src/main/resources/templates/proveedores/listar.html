@@ -1,0 +1,23 @@
+<h1>Listado de Proveedores</h1>
+<a th:href="@{/proveedores/form}">Nuevo Proveedor</a>
+<table>
+    <thead>
+    <tr>
+        <th>Razón Social</th><th>RUC</th><th>Teléfono</th><th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prov : ${proveedores}">
+        <td th:text="${prov.razonSocial}"></td>
+        <td th:text="${prov.ruc}"></td>
+        <td th:text="${prov.telefono}"></td>
+        <td>
+            <a th:href="@{/proveedores/editar/{id}(id=${prov.id})}">Editar</a>
+            <form th:action="@{/proveedores/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${prov.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar proveedor?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

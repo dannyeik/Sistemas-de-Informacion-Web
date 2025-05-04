@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Formulario Venta</title></head>
+<body>
+    <h2 th:text="${venta.id == null} ? 'Nueva Venta' : 'Editar Venta'"></h2>
+    <form th:action="@{/ventas/guardar}" th:object="${venta}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <label>Cliente:</label>
+        <input type="number" th:field="*{id_cliente}"/><br/>
+        <label>Fecha:</label>
+        <input type="date" th:field="*{fecha}"/><br/>
+        <label>Estado:</label>
+        <input type="text" th:field="*{estado}"/><br/>
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="/ventas">Volver</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<h1>Listado de Barrios</h1>
+<a th:href="@{/barrios/nuevo}">Nuevo Barrio</a>
+<table>
+    <tr>
+        <th>ID</th><th>Nombre</th><th>ID Ciudad</th><th>Acciones</th>
+    </tr>
+    <tr th:each="barrio : ${barrios}">
+        <td th:text="${barrio.id}"></td>
+        <td th:text="${barrio.nombre}"></td>
+        <td th:text="${barrio.idCiudad}"></td>
+        <td>
+            <a th:href="@{/barrios/editar/{id}(id=${barrio.id})}">Editar</a>
+            <a th:href="@{/barrios/eliminar/{id}(id=${barrio.id})}" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,8 @@
+<h1 th:text="${#strings.isEmpty(marca.id) ? 'Nueva Marca' : 'Editar Marca'}"></h1>
+<form th:action="@{/marcas/guardar}" th:object="${marca}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" required/>
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/marcas}">Volver</a>

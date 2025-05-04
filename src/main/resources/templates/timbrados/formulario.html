@@ -1,0 +1,26 @@
+<h1 th:text="${#strings.isEmpty(timbrado.id) ? 'Nuevo Timbrado' : 'Editar Timbrado'}"></h1>
+<form th:action="@{/timbrados/guardar}" th:object="${timbrado}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Nro Timbrado:</label>
+    <input type="number" th:field="*{nroTimbrado}" /><br/>
+    <label>Nro Desde:</label>
+    <input type="number" th:field="*{nroDesde}" /><br/>
+    <label>Nro Hasta:</label>
+    <input type="number" th:field="*{nroHasta}" /><br/>
+    <label>Nro1:</label>
+    <input type="number" th:field="*{nro1}" /><br/>
+    <label>Nro2:</label>
+    <input type="number" th:field="*{nro2}" /><br/>
+    <label>Nro3:</label>
+    <input type="number" th:field="*{nro3}" /><br/>
+    <label>ID Tipo Documento:</label>
+    <input type="number" th:field="*{idTipoDocumento}" /><br/>
+    <label>Fecha Inicio:</label>
+    <input type="date" th:field="*{fechaInicio}" /><br/>
+    <label>Fecha Fin:</label>
+    <input type="date" th:field="*{fechaFin}" /><br/>
+    <label>Estado:</label>
+    <input type="text" th:field="*{estado}" maxlength="3" /><br/>
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/timbrados}">Volver</a>

@@ -1,0 +1,10 @@
+<h1 th:text="${#strings.isEmpty(tipo.id) ? 'Nuevo Tipo de Impuesto' : 'Editar Tipo de Impuesto'}"></h1>
+<form th:action="@{/tipo-impuesto/guardar}" th:object="${tipo}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" required/><br/>
+    <label>Tipo (número):</label>
+    <input type="number" th:field="*{tipo}" required/><br/>
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/tipo-impuesto}">Volver</a>

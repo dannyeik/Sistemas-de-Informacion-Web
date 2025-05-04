@@ -1,0 +1,28 @@
+<h1 th:text="${#strings.isEmpty(mercaderia.id) ? 'Nueva Mercadería' : 'Editar Mercadería'}"></h1>
+<form th:action="@{/mercaderias/guardar}" th:object="${mercaderia}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" required/><br/>
+
+    <label>ID Marca:</label>
+    <input type="number" th:field="*{idMarca}" /><br/>
+
+    <label>ID Tipo Impuesto:</label>
+    <input type="number" th:field="*{idTipoImpuesto}" /><br/>
+
+    <label>ID Procedencia:</label>
+    <input type="number" th:field="*{idProcedencia}" /><br/>
+
+    <label>Afecta Existencia (S/N):</label>
+    <input type="text" th:field="*{afectaExistencia}" maxlength="1" /><br/>
+
+    <label>Precio Compra:</label>
+    <input type="number" step="0.01" th:field="*{precioCompra}" /><br/>
+
+    <label>Precio Venta:</label>
+    <input type="number" step="0.01" th:field="*{precioVenta}" /><br/>
+
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/mercaderias}">Volver</a>

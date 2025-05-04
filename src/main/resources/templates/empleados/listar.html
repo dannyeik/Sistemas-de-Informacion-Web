@@ -1,0 +1,26 @@
+<h1>Listado de Empleados</h1>
+<a th:href="@{/empleados/form}">Nuevo Empleado</a>
+<table>
+    <thead>
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Legajo</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emp : ${empleados}">
+        <td th:text="${emp.nombres}"></td>
+        <td th:text="${emp.apellidos}"></td>
+        <td th:text="${emp.legajo}"></td>
+        <td>
+            <a th:href="@{/empleados/editar/{id}(id=${emp.id})}">Editar</a>
+            <form th:action="@{/empleados/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${emp.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar empleado?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

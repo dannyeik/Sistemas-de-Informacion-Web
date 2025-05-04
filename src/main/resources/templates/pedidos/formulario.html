@@ -1,0 +1,36 @@
+<h1 th:text="${#strings.isEmpty(pedido.id) ? 'Nuevo Pedido de Compra' : 'Editar Pedido de Compra'}"></h1>
+<form th:action="@{/pedidos/guardar}" th:object="${pedido}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Proveedor:</label>
+    <select th:field="*{idProveedor}">
+        <option th:each="p : ${proveedores}" th:value="${p.id}" th:text="${p.razonSocial}"></option>
+    </select><br/>
+
+    <label>Empleado:</label>
+    <select th:field="*{idEmpleado}">
+        <option th:each="e : ${empleados}" th:value="${e.id}" th:text="${e.nombres} + ' ' + ${e.apellidos}"></option>
+    </select><br/>
+
+    <label>Sucursal:</label>
+    <select th:field="*{idSucursal}">
+        <option th:each="s : ${sucursales}" th:value="${s.id}" th:text="${s.descripcion}"></option>
+    </select><br/>
+
+    <label>Condición:</label>
+    <select th:field="*{idCondicion}">
+        <option th:each="c : ${condiciones}" th:value="${c.id}" th:text="${c.descripcion}"></option>
+    </select><br/>
+
+    <label>Fecha:</label>
+    <input type="date" th:field="*{fecha}" /><br/>
+
+    <label>Observación:</label>
+    <input type="text" th:field="*{observacion}" /><br/>
+
+    <label>Estado:</label>
+    <input type="text" th:field="*{estado}" maxlength="3" /><br/>
+
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/pedidos}">Volver</a>

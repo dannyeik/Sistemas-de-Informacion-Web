@@ -1,0 +1,12 @@
+<h1 th:text="${#strings.isEmpty(barrio.id) ? 'Nuevo Barrio' : 'Editar Barrio'}"></h1>
+<form th:action="@{/barrios/guardar}" th:object="${barrio}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required />
+    <br />
+    <label>ID Ciudad:</label>
+    <input type="number" th:field="*{idCiudad}" required />
+    <br />
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/barrios}">Volver</a>

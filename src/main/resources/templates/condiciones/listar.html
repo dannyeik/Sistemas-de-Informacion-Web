@@ -1,0 +1,22 @@
+<h1>Listado de Condiciones de Pago</h1>
+<a th:href="@{/condiciones/form}">Nueva Condición</a>
+<table>
+    <thead>
+    <tr>
+        <th>Descripción</th><th>Cuota</th><th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cond : ${condiciones}">
+        <td th:text="${cond.descripcion}"></td>
+        <td th:text="${cond.cuota}"></td>
+        <td>
+            <a th:href="@{/condiciones/editar/{id}(id=${cond.id})}">Editar</a>
+            <form th:action="@{/condiciones/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${cond.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar condición?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

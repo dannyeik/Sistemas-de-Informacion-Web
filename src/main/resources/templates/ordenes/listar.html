@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ordenes de Compra</title>
+</head>
+<body>
+<h1>Listado de Ordenes de Compra</h1>
+<a th:href="@{/ordenes/form}">Nueva Orden</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Proveedor</th>
+            <th>Empleado</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="orden : ${ordenes}">
+            <td th:text="${orden.id}">1</td>
+            <td th:text="${orden.idProveedor}">Proveedor</td>
+            <td th:text="${orden.idEmpleado}">Empleado</td>
+            <td th:text="${#dates.format(orden.fecha, 'dd/MM/yyyy')}">Fecha</td>
+            <td>
+                <a th:href="@{'/ordenes/editar/' + ${orden.id}}">Editar</a>
+                <form th:action="@{/ordenes/eliminar}" method="post" style="display:inline;">
+                    <input type="hidden" name="id" th:value="${orden.id}" />
+                    <button type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

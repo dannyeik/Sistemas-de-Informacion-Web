@@ -1,0 +1,23 @@
+<h1>Listado de Mercaderías</h1>
+<a th:href="@{/mercaderias/form}">Nueva Mercadería</a>
+<table>
+    <thead>
+    <tr>
+        <th>Descripción</th><th>Precio Compra</th><th>Precio Venta</th><th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="m : ${mercaderias}">
+        <td th:text="${m.descripcion}"></td>
+        <td th:text="${m.precioCompra}"></td>
+        <td th:text="${m.precioVenta}"></td>
+        <td>
+            <a th:href="@{/mercaderias/editar/{id}(id=${m.id})}">Editar</a>
+            <form th:action="@{/mercaderias/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${m.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

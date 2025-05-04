@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nueva Nota de Débito</title>
+</head>
+<body>
+<h1>Formulario Nota de Débito</h1>
+<form th:action="@{/nota-debito-compras/guardar}" th:object="${nota}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <label>Observación: <input th:field="*{observacion}"/></label><br/>
+    <label>Fecha: <input type="date" th:field="*{fecha}"/></label><br/>
+    <label>Estado: <input th:field="*{estado}"/></label><br/>
+    <label>Timbrado: <input th:field="*{nro_timbrado}"/></label><br/>
+    <label>Nro Nota Débito: <input th:field="*{nro_nota_debito}"/></label><br/>
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<h1>Listado de Cajas</h1>
+<a th:href="@{/cajas/form}">Nueva Caja</a>
+<table>
+    <thead>
+    <tr>
+        <th>Descripción</th><th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="caja : ${cajas}">
+        <td th:text="${caja.descripcion}"></td>
+        <td>
+            <a th:href="@{/cajas/editar/{id}(id=${caja.id})}">Editar</a>
+            <form th:action="@{/cajas/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${caja.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar caja?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

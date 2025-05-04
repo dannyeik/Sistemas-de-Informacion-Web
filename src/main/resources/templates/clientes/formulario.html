@@ -1,0 +1,20 @@
+<h1 th:text="${#strings.isEmpty(cliente.id) ? 'Nuevo Cliente' : 'Editar Cliente'}"></h1>
+<form th:action="@{/clientes/guardar}" th:object="${cliente}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Razón Social:</label>
+    <input type="text" th:field="*{razonSocial}" required/><br/>
+    <label>RUC:</label>
+    <input type="text" th:field="*{ruc}" required/><br/>
+    <label>Dirección:</label>
+    <input type="text" th:field="*{direccion}" /><br/>
+    <label>Teléfono:</label>
+    <input type="text" th:field="*{telefono}" /><br/>
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" /><br/>
+    <label>Tipo Cliente (MIN/MAY):</label>
+    <input type="text" th:field="*{tipoCliente}" maxlength="3"/><br/>
+    <label>ID Barrio:</label>
+    <input type="number" th:field="*{idBarrio}" /><br/>
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/clientes}">Volver</a>

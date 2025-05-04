@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Presupuesto</title>
+</head>
+<body>
+<h1>Formulario de Presupuesto</h1>
+<form th:action="@{/presupuestos/guardar}" th:object="${presupuesto}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    
+    <label>Pedido:</label>
+    <select th:field="*{pedidoId}">
+        <option th:each="item : ${pedidos}" th:value="${item.id}" th:text="${item.id}">Pedido</option>
+    </select><br/>
+
+    <label>Proveedor:</label>
+    <select th:field="*{proveedorId}">
+        <option th:each="item : ${proveedores}" th:value="${item.id}" th:text="${item.razonSocial}">Proveedor</option>
+    </select><br/>
+
+    <label>Empleado:</label>
+    <select th:field="*{empleadoId}">
+        <option th:each="item : ${empleados}" th:value="${item.id}" th:text="${item.nombres}">Empleado</option>
+    </select><br/>
+
+    <label>Sucursal:</label>
+    <select th:field="*{sucursalId}">
+        <option th:each="item : ${sucursales}" th:value="${item.id}" th:text="${item.descripcion}">Sucursal</option>
+    </select><br/>
+
+    <label>Condición:</label>
+    <select th:field="*{condicionId}">
+        <option th:each="item : ${condiciones}" th:value="${item.id}" th:text="${item.descripcion}">Condición</option>
+    </select><br/>
+
+    <label>Fecha:</label>
+    <input type="date" th:field="*{fecha}" /><br/>
+
+    <label>Estado:</label>
+    <input type="text" th:field="*{estado}" /><br/>
+
+    <label>Observación:</label>
+    <input type="text" th:field="*{observacion}" /><br/>
+
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

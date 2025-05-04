@@ -1,0 +1,10 @@
+<h1 th:text="${#strings.isEmpty(condicion.id) ? 'Nueva Condición' : 'Editar Condición'}"></h1>
+<form th:action="@{/condiciones/guardar}" th:object="${condicion}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" required/><br/>
+    <label>Cuotas:</label>
+    <input type="number" th:field="*{cuota}" required/><br/>
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/condiciones}">Volver</a>

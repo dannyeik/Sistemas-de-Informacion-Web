@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ciudad</title>
+</head>
+<body>
+<h1 th:text="${#strings.isEmpty(ciudad.id) ? 'Nueva Ciudad' : 'Editar Ciudad'}"></h1>
+<form th:action="@{/ciudades/guardar}" th:object="${ciudad}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required/>
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/ciudades}">Volver</a>
+</body>
+</html>

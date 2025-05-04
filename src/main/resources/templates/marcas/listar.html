@@ -1,0 +1,22 @@
+<h1>Listado de Marcas</h1>
+<a th:href="@{/marcas/form}">Nueva Marca</a>
+<table>
+    <thead>
+    <tr>
+        <th>Descripción</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="marca : ${marcas}">
+        <td th:text="${marca.descripcion}"></td>
+        <td>
+            <a th:href="@{/marcas/editar/{id}(id=${marca.id})}">Editar</a>
+            <form th:action="@{/marcas/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${marca.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar marca?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

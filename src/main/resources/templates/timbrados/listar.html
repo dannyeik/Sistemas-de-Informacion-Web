@@ -1,0 +1,25 @@
+<h1>Listado de Timbrados</h1>
+<a th:href="@{/timbrados/form}">Nuevo Timbrado</a>
+<table>
+    <thead>
+    <tr>
+        <th>Nro. Timbrado</th><th>Desde</th><th>Hasta</th><th>Inicio</th><th>Fin</th><th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${timbrados}">
+        <td th:text="${t.nroTimbrado}"></td>
+        <td th:text="${t.nroDesde}"></td>
+        <td th:text="${t.nroHasta}"></td>
+        <td th:text="${t.fechaInicio}"></td>
+        <td th:text="${t.fechaFin}"></td>
+        <td>
+            <a th:href="@{/timbrados/editar/{id}(id=${t.id})}">Editar</a>
+            <form th:action="@{/timbrados/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${t.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar timbrado?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

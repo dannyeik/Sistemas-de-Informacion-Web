@@ -1,0 +1,24 @@
+<h1>Listado de Tipos de Impuesto</h1>
+<a th:href="@{/tipo-impuesto/form}">Nuevo Tipo</a>
+<table>
+    <thead>
+    <tr>
+        <th>Descripción</th>
+        <th>Tipo</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tipo : ${tipos}">
+        <td th:text="${tipo.descripcion}"></td>
+        <td th:text="${tipo.tipo}"></td>
+        <td>
+            <a th:href="@{/tipo-impuesto/editar/{id}(id=${tipo.id})}">Editar</a>
+            <form th:action="@{/tipo-impuesto/eliminar}" method="post" style="display:inline;">
+                <input type="hidden" name="id" th:value="${tipo.id}"/>
+                <button type="submit" onclick="return confirm('¿Eliminar tipo?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>

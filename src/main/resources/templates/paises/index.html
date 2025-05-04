@@ -1,0 +1,15 @@
+<h1>Listado de Países</h1>
+<a th:href="@{/paises/nuevo}">Nuevo País</a>
+<table>
+    <tr>
+        <th>ID</th><th>Nombre</th><th>Acciones</th>
+    </tr>
+    <tr th:each="pais : ${paises}">
+        <td th:text="${pais.id}"></td>
+        <td th:text="${pais.nombre}"></td>
+        <td>
+            <a th:href="@{/paises/editar/{id}(id=${pais.id})}">Editar</a>
+            <a th:href="@{/paises/eliminar/{id}(id=${pais.id})}">Eliminar</a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ciudades</title>
+</head>
+<body>
+<h1>Listado de Ciudades</h1>
+<a th:href="@{/ciudades/nuevo}">Nueva Ciudad</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="ciudad : ${ciudades}">
+        <td th:text="${ciudad.id}"></td>
+        <td th:text="${ciudad.nombre}"></td>
+        <td>
+            <a th:href="@{/ciudades/editar/{id}(id=${ciudad.id})}">Editar</a>
+            <a th:href="@{/ciudades/eliminar/{id}(id=${ciudad.id})}" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
